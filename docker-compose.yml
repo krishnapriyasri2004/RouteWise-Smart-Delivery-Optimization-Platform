@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:5000
+    depends_on:
+      - backend
+    networks:
+      - route-optimizer-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=password
+      - DB_NAME=routeoptima
+      - DB_PORT=3306
+      - JWT_SECRET=your-secret-key-change-in-production
+    depends_on:
+      - mysql
+    networks:
+      - route-optimizer-network
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=routeoptima
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - route-optimizer-network
+
+networks:
+  route-optimizer-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
