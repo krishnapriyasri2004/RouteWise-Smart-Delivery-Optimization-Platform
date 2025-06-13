@@ -91,3 +91,28 @@ This project is licensed under the [MIT License](LICENSE).
 
 Optimizing deliveries, reducing carbon footprint, and accelerating last-mile logistics with smart code and clean architecture.
 
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home](./assets/home.png)
+
+### 🚚 Delivery Partner View
+![Delivery Partner](./assets/delivery_partner.png)
+
+### 🗺️ Route Planner Map
+![Route Map](./assets/cbe_route_map.png)
+
+### 📦 Cargo Assignment
+![Cargo Assignment](./assets/cargo_assignment.png)
+
+### 📊 Optimized Cargo View
+![Cargo](./assets/cargo.png)
+
+### 🛠️ Settings Page
+![Settings](./assets/settings.png)
+
+### 🗂️ Route Overview
+![Route](./assets/route.png)
+
+
